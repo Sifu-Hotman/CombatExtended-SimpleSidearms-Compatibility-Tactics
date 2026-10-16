@@ -252,7 +252,7 @@ namespace CESSTacticsTestStaging
                             .Where(m =>
                             {
                                 var info = Harmony.GetPatchInfo(m);
-                                return info != null && info.Owners.Contains("eebette.CESimpleSidearmsCompat.Tactics");
+                                return info != null && info.Owners.Contains("SifuHotman.CESimpleSidearmsCompat.Tactics");
                             })
                             .ToList();
                         // 11 distinct methods today: equipBestWeaponFromInventoryByPreference
@@ -266,7 +266,7 @@ namespace CESSTacticsTestStaging
                         // Extensions.GetCarriedWeapons (reload-abort's loaded-now scope),
                         // CompAmmoUser.SyncedTryStartReload (the reload gizmo's marker).
                         return (mine.Count >= 14,
-                            $"methods patched by eebette.CESimpleSidearmsCompat.Tactics={mine.Count} (want >= 14): "
+                            $"methods patched by SifuHotman.CESimpleSidearmsCompat.Tactics={mine.Count} (want >= 14): "
                             + string.Join(", ", mine.Select(m => m.DeclaringType?.Name + "." + m.Name).OrderBy(n => n)));
                     }),
                 }
@@ -290,7 +290,7 @@ namespace CESSTacticsTestStaging
             // runs and patches the same SS selection methods these scenarios test. Remove its
             // patches by Harmony owner id — decoupled from Loadouts' internals, so a redesign
             // there cannot silently contaminate (or falsely fail) the run.
-            const string loadoutsId = "eebette.CESimpleSidearmsCompat.Loadouts";
+            const string loadoutsId = "SifuHotman.CESimpleSidearmsCompat.Loadouts";
             try
             {
                 if (!ModsConfig.IsActive(loadoutsId))

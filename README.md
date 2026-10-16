@@ -1,6 +1,6 @@
 # CombatExtended-SimpleSidearms Compatibility Module - Tactics
 
-[![Latest Release](https://img.shields.io/github/v/release/eebette/CombatExtended-SimpleSidearms-Compatibility-Tactics?label=Latest%20Release)](https://github.com/eebette/CombatExtended-SimpleSidearms-Compatibility-Tactics/releases)
+[![Latest Release](https://img.shields.io/github/v/release/Sifu-Hotman/CombatExtended-SimpleSidearms-Compatibility-Tactics?label=Latest%20Release)](https://github.com/Sifu-Hotman/CombatExtended-SimpleSidearms-Compatibility-Tactics/releases)
 <!-- Steam Workshop badge goes here at publish -->
 
 [![Combat Extended Compatible](Media/Badge_CE_compatible.png)](https://steamcommunity.com/sharedfiles/filedetails/?id=2890901044)
@@ -10,7 +10,7 @@
 RimWorld mod improving pawn decision-making related specifically to interactions and circumstances that surface as a
 result of patching [Combat Extended](https://github.com/CombatExtended-Continued/CombatExtended)
 and [Simple Sidearms](https://github.com/PeteTimesSix/SimpleSidearms) using this suite's
-[CE + Simple Sidearms Compatibility patch](https://github.com/eebette/CombatExtended-SimpleSidearms-Compatibility-Patch).
+[CE + Simple Sidearms Compatibility patch](https://github.com/Sifu-Hotman/CombatExtended-SimpleSidearms-Compatibility-Patch).
 
 ## Features
 
@@ -34,24 +34,24 @@ in these instead.
 
 <table>
 <tr><th width="300">Module</th><th width="540">What it does</th></tr>
-<tr><td width="300"><a href="https://github.com/eebette/CombatExtended-SimpleSidearms-Compatibility-Patch"><img src="Media/Badge_Patch.png" width="300" alt="CE + Simple Sidearms Compatibility Patch"></a></td><td width="540">Core compatibility patch for Combat Extended and Simple Sidearms.</td></tr>
-<tr><td width="300"><a href="https://github.com/eebette/CombatExtended-SimpleSidearms-Compatibility-Loadouts"><img src="Media/Badge_Loadouts.png" width="300" alt="CE + Simple Sidearms Loadouts Module"></a></td><td width="540">Syncs loadouts between Combat Extended and Simple Sidearms.</td></tr>
+<tr><td width="300"><a href="https://github.com/Sifu-Hotman/CombatExtended-SimpleSidearms-Compatibility-Patch"><img src="Media/Badge_Patch.png" width="300" alt="CE + Simple Sidearms Compatibility Patch"></a></td><td width="540">Core compatibility patch for Combat Extended and Simple Sidearms.</td></tr>
+<tr><td width="300"><a href="https://github.com/Sifu-Hotman/CombatExtended-SimpleSidearms-Compatibility-Loadouts"><img src="Media/Badge_Loadouts.png" width="300" alt="CE + Simple Sidearms Loadouts Module"></a></td><td width="540">Syncs loadouts between Combat Extended and Simple Sidearms.</td></tr>
 </table>
 
 ### Expanded Materials patches
 
 <table>
 <tr><th width="300">Mod</th><th width="540">What it does</th></tr>
-<tr><td width="300"><a href="https://github.com/eebette/More-Mod-Patches-for-Expanded-Materials-Metals"><img src="Media/Badge_MMP.png" width="300" alt="Expanded Materials - Metals: Mod Patches"></a></td><td width="540">Extends <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3333419387">Expanded Materials - Metals</a> to support additional mods.</td></tr>
-<tr><td width="300"><a href="https://github.com/eebette/More-Mod-Patches-for-Expanded-Materials-Masonry"><img src="Media/Badge_MMMas.png" width="300" alt="Expanded Materials - Masonry: Mod Patches"></a></td><td width="540">Extends <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3662913084">Expanded Materials - Masonry</a> to support additional mods.</td></tr>
+<tr><td width="300"><a href="https://github.com/Sifu-Hotman/More-Mod-Patches-for-Expanded-Materials-Metals"><img src="Media/Badge_MMP.png" width="300" alt="Expanded Materials - Metals: Mod Patches"></a></td><td width="540">Extends <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3333419387">Expanded Materials - Metals</a> to support additional mods.</td></tr>
+<tr><td width="300"><a href="https://github.com/Sifu-Hotman/More-Mod-Patches-for-Expanded-Materials-Masonry"><img src="Media/Badge_MMMas.png" width="300" alt="Expanded Materials - Masonry: Mod Patches"></a></td><td width="540">Extends <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3662913084">Expanded Materials - Masonry</a> to support additional mods.</td></tr>
 </table>
 
 ### Standalone
 
 <table>
 <tr><th width="300">Mod</th><th width="540">What it does</th></tr>
-<tr><td width="300"><a href="https://github.com/eebette/Better-Attack-Orders-for-Simple-Sidearms"><img src="Media/Badge_BAO.png" width="300" alt="Better Attack Orders for Simple Sidearms"></a></td><td width="540">Adds sidearm attack orders to the right-click target menu.</td></tr>
-<tr><td width="300"><a href="https://github.com/eebette/Pawns-Optimize-Weapon-Quality"><img src="Media/Badge_POWQ.png" width="300" alt="Pawns Optimize Weapon Quality"></a></td><td width="540">Pawns will upgrade their held guns when a higher-quality copy is available.</td></tr>
+<tr><td width="300"><a href="https://github.com/Sifu-Hotman/Better-Attack-Orders-for-Simple-Sidearms"><img src="Media/Badge_BAO.png" width="300" alt="Better Attack Orders for Simple Sidearms"></a></td><td width="540">Adds sidearm attack orders to the right-click target menu.</td></tr>
+<tr><td width="300"><a href="https://github.com/Sifu-Hotman/Pawns-Optimize-Weapon-Quality"><img src="Media/Badge_POWQ.png" width="300" alt="Pawns Optimize Weapon Quality"></a></td><td width="540">Pawns will upgrade their held guns when a higher-quality copy is available.</td></tr>
 </table>
 
 ## FAQ

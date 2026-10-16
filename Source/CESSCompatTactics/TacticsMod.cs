@@ -68,7 +68,7 @@ namespace CESSCompatTactics
     [StaticConstructorOnStartup]
     public static class Bootstrap
     {
-        public const string HarmonyId = "eebette.CESimpleSidearmsCompat.Tactics";
+        public const string HarmonyId = "SifuHotman.CESimpleSidearmsCompat.Tactics";
 
         static Bootstrap()
         {

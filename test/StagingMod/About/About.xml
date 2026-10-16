@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
     <name>CESS Tactics Test Staging (dev only)</name>
-    <author>eebette</author>
-    <packageId>eebette.cesstacticsteststaging</packageId>
+    <author>Sifu-Hotman</author>
+    <packageId>SifuHotman.cesstacticsteststaging</packageId>
     <supportedVersions>
         <li>1.6</li>
     </supportedVersions>

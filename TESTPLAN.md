@@ -22,13 +22,13 @@ tact3→TACT-3-tiebreak, tact4→TACT-4-ammo-target, tact5→TACT-5-melee-target
 ## Machinery (Tactics-specific)
 
 - **Phase 0 census** in every scenario: reflection sweep of
-  `Harmony.GetAllPatchedMethods()` for owner `eebette.CESimpleSidearmsCompat.Tactics`
+  `Harmony.GetAllPatchedMethods()` for owner `SifuHotman.CESimpleSidearmsCompat.Tactics`
   - ≥ 7 patched methods (forced-dry fall-through ×2, the ranged-selection scope ×3, armor-aware melee, drafted top-off; reload-abort is a
   GameComponent and has no census line) - plus a startup-error sweep of the
   baselined log.
 - **Module isolation**: the shared test env loads the sibling Loadouts module,
   which patches the same SS selection methods, so the runner Harmony-unpatches it
-  by owner id (`eebette.CESimpleSidearmsCompat.Loadouts`) before the scenarios run -
+  by owner id (`SifuHotman.CESimpleSidearmsCompat.Loadouts`) before the scenarios run -
   decoupled from Loadouts' internals, so its redesign cannot contaminate the board.
   The core compat patch
   stays LOADED: Tactics declares it a dependency, and its RangedDpsCE/ReloadGuard/MeleePenetrationCE behavior
