@@ -30,7 +30,9 @@ namespace CESSCompatTactics.Features
 
         public override void GameComponentTick()
         {
-            if (TacticsMod.Settings == null || !TacticsMod.Settings.reloadAbort)
+            // SS's own ranged auto-switch toggle gates this one too
+            if (TacticsMod.Settings == null || !TacticsMod.Settings.reloadAbort
+                || !PeteTimesSix.SimpleSidearms.SimpleSidearms.Settings.RangedCombatAutoSwitch)
             {
                 return;
             }
@@ -123,7 +125,9 @@ namespace CESSCompatTactics.Features
 
             // Mirror the core patch's swap semantics: end the reload cleanly first.
             pawn.jobs.EndCurrentJob(JobCondition.InterruptForced, startNewJob: false);
-            WeaponAssingment.equipSpecificWeaponFromInventory(pawn, winner, dropCurrent: false, intentionalDrop: false);
+            WeaponAssingment.equipSpecificWeaponFromInventory(pawn, winner,
+                dropCurrent: MiscUtils.shouldDrop(pawn, DroppingModeEnum.Combat, ignoreRecoveryChance: false),
+                intentionalDrop: false);
         }
 
         /// <summary>Only a marker-tagged job is the player's.</summary>

@@ -2130,6 +2130,54 @@ namespace CESSTacticsTestStaging
                         }),
                     }
                 },
+                new Phase
+                {
+                    label = "ss-ranged-switch-off-reload-completes",
+                    deadlineTicks = 8000,
+                    arrange = () =>
+                    {
+                        TacticsMod.Settings.reloadAbort = true;
+                        // last phase: nothing after it needs the toggle back on
+                        PeteTimesSix.SimpleSidearms.SimpleSidearms.Settings.RangedCombatAutoSwitch = false;
+                        ThingWithComps usable = UsableRifle();
+                        if (usable != null && abort.equipment?.Primary != usable)
+                        {
+                            abort.TryGetComp<CompInventory>().TrySwitchToWeapon(usable);
+                        }
+                        CompAmmoUser ru = abort.equipment?.Primary?.TryGetComp<CompAmmoUser>();
+                        AmmoDef rifleAmmo = ru?.SelectedAmmo ?? ru?.CurrentAmmo;
+                        if (rifleAmmo != null && !abort.inventory.innerContainer.Any(t => t.def == rifleAmmo))
+                        {
+                            Thing stack = ThingMaker.MakeThing(rifleAmmo);
+                            stack.stackCount = 60;
+                            abort.inventory.innerContainer.TryAdd(stack, false);
+                        }
+                        Carried(abort, pistol)?.TryGetComp<CompAmmoUser>()?.ResetAmmoCount();
+                        abort.TryGetComp<CompInventory>().UpdateInventory();
+                    },
+                    mutate = () =>
+                    {
+                        ParkRaiderAt(abort, 12);
+                        StartReload(abort, playerForced: false);
+                    },
+                    checks =
+                    {
+                        P("loaded-pistol-in-reach", () =>
+                        {
+                            CompAmmoUser pu = Carried(abort, pistol)?.TryGetComp<CompAmmoUser>();
+                            bool loaded = pu != null && pu.CurMagCount > 0;
+                            return (loaded && abort.equipment?.Primary?.def == rifle,
+                                $"pistolMag={pu?.CurMagCount} primary={abort.equipment?.Primary?.def?.defName}");
+                        }),
+                        C("reload-finished-no-abort", () =>
+                        {
+                            ThingWithComps primary = abort.equipment?.Primary;
+                            CompAmmoUser user = primary?.TryGetComp<CompAmmoUser>();
+                            bool full = primary?.def == rifle && user != null && user.CurMagCount == user.MagSize;
+                            return (full, $"primary={primary?.def?.defName} mag={user?.CurMagCount}/{user?.MagSize} (SS toggle OFF must gate the abort)");
+                        }),
+                    }
+                },
             };
         }
 
