@@ -19,6 +19,10 @@ Saves and results live in the SHARED profile - the compat repo's
 mod list. Scenario→save map: tact1→TACT-1-reload-abort, tact2→TACT-2-forced-dry,
 tact3→TACT-3-tiebreak, tact4→TACT-4-ammo-target, tact5→TACT-5-melee-target.
 
+**2026-10-18:** reload-abort also obeys SS's *Use best ranged weapon* toggle and
+asks SS's fumble rule on its swap. tact1 gained
+`ss-ranged-switch-off-reload-completes` (last phase; leaves the toggle off).
+
 ## Machinery (Tactics-specific)
 
 - **Phase 0 census** in every scenario: reflection sweep of
