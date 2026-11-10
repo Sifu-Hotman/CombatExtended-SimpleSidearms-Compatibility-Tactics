@@ -2342,6 +2342,14 @@ namespace CESSTacticsTestStaging
                         PeteTimesSix.SimpleSidearms.SimpleSidearms.Settings.CQCAutoSwitch = true;
                         Pawn raider = Raider() ?? SpawnThreat(forcy.Map);
                         ParkPawnNear(forcy, raider, 2);
+                        // Pinned until the precondition has seen revolver-in-hand + adjacent;
+                        // on 1.7 the swing lands inside the first 30-tick sample otherwise.
+                        Stun(raider, 600);
+                    },
+                    mutate = () =>
+                    {
+                        Pawn raider = Raider();
+                        raider?.stances?.stunner?.StopStun();
                         ForceMeleeAttack(raider, forcy);
                     },
                     // The map has other colonists; a free raider re-targets, walks off
