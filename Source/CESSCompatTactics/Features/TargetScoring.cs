@@ -270,11 +270,11 @@ namespace CESSCompatTactics.Features
     /// </summary>
     internal static class UpstreamFingerprint
     {
-        // Baked against CE 16.7.3.0 / SS v1.6 - re-harvest on upstream updates.
-        internal const string TryPenetrateArmorHash = "7b66aeb80967e00d";
-        internal const string GetDeflectDamageInfoHash = "cf4967c8bf864887";
-        internal const string DoReloadCheckHash = "24ec22f8bfb61eb8";
-        internal const string GetAfterArmorDamageHash = "d65d743e005da6c9";
+        // Baked against CE 16.7.4.0 - re-harvest on upstream updates.
+        internal const string TryPenetrateArmorHash = "9f2f652667da9823";
+        internal const string GetDeflectDamageInfoHash = "f38eb86df9e33afb";
+        internal const string DoReloadCheckHash = "6df2e925fd6ebd75";
+        internal const string GetAfterArmorDamageHash = "dce77164eb7ff2a8";
 
         internal static void Verify(Type type, string method, string expected, string protects)
         {
@@ -290,11 +290,7 @@ namespace CESSCompatTactics.Features
                 ulong hash = 14695981039346656037UL; // FNV-1a
                 foreach (var instruction in PatchProcessor.GetOriginalInstructions(mb))
                 {
-                    // Invariant formatting: float operands ToString by CurrentCulture.
-                    string token = instruction.opcode.Name
-                        + (instruction.operand is IFormattable formattable
-                            ? formattable.ToString(null, System.Globalization.CultureInfo.InvariantCulture)
-                            : instruction.operand?.ToString() ?? "");
+                    string token = instruction.opcode.Name + OperandText.Render(instruction.operand);
                     foreach (char c in token)
                     {
                         hash = (hash ^ c) * 1099511628211UL;
@@ -316,6 +312,72 @@ namespace CESSCompatTactics.Features
             {
                 Log.Warning($"{PatchGuard.LogPrefix}Fingerprint check for {type.Name}.{method} failed to run: " + e.Message);
             }
+        }
+    }
+
+    /// <summary>Runtime-neutral operand text for the fingerprint hash.</summary>
+    internal static class OperandText
+    {
+        internal static string Render(object operand)
+        {
+            // Mono and CoreCLR print members, locals and byrefs differently.
+            switch (operand)
+            {
+                case null:
+                    return "";
+                case MethodBase m:
+                {
+                    var sb = new System.Text.StringBuilder();
+                    sb.Append(Type(m.DeclaringType)).Append("::").Append(m.Name);
+                    if (m.IsGenericMethod)
+                    {
+                        sb.Append('<');
+                        foreach (var a in m.GetGenericArguments()) sb.Append(Type(a)).Append(',');
+                        sb.Append('>');
+                    }
+                    sb.Append('(');
+                    foreach (var prm in m.GetParameters()) sb.Append(Type(prm.ParameterType)).Append(',');
+                    sb.Append(')');
+                    if (m is MethodInfo mi) sb.Append(':').Append(Type(mi.ReturnType));
+                    return sb.ToString();
+                }
+                case FieldInfo f:
+                    return Type(f.DeclaringType) + "::" + f.Name + ":" + Type(f.FieldType);
+                case Type t:
+                    return Type(t);
+                case System.Reflection.Emit.LocalBuilder l:
+                    return "loc" + l.LocalIndex + ":" + Type(l.LocalType);
+                case System.Reflection.Emit.Label lab:
+                    return "L" + lab.GetHashCode();
+                case System.Reflection.Emit.Label[] labs:
+                {
+                    var sb = new System.Text.StringBuilder();
+                    foreach (var lab in labs) sb.Append('L').Append(lab.GetHashCode()).Append(',');
+                    return sb.ToString();
+                }
+                case string str:
+                    return "\"" + str + "\"";
+                case IFormattable formattable:
+                    return formattable.ToString(null, System.Globalization.CultureInfo.InvariantCulture);
+                default:
+                    return operand.GetType().Name;
+            }
+        }
+
+        internal static string Type(Type t)
+        {
+            if (t == null) return "";
+            if (t.IsByRef) return Type(t.GetElementType()) + "&";
+            if (t.IsPointer) return Type(t.GetElementType()) + "*";
+            if (t.IsArray) return Type(t.GetElementType()) + "[" + new string(',', t.GetArrayRank() - 1) + "]";
+            if (t.IsGenericParameter) return "!" + t.GenericParameterPosition;
+            if (t.IsGenericType && !t.IsGenericTypeDefinition)
+            {
+                var sb = new System.Text.StringBuilder(Type(t.GetGenericTypeDefinition())).Append('[');
+                foreach (var a in t.GetGenericArguments()) sb.Append(Type(a)).Append(',');
+                return sb.Append(']').ToString();
+            }
+            return t.FullName ?? t.Name;
         }
     }
 }
