@@ -1,7 +1,7 @@
 # CombatExtended-SimpleSidearms Compatibility Module - Tactics
 
 [![Latest Release](https://img.shields.io/github/v/release/Sifu-Hotman/CombatExtended-SimpleSidearms-Compatibility-Tactics?label=Latest%20Release)](https://github.com/Sifu-Hotman/CombatExtended-SimpleSidearms-Compatibility-Tactics/releases)
-<!-- Steam Workshop badge goes here at publish -->
+[![Steam Workshop](https://img.shields.io/steam/subscriptions/3837121355?label=Steam%20Workshop&logo=steam)](https://steamcommunity.com/sharedfiles/filedetails/?id=3837121355)
 
 [![Combat Extended Compatible](Media/Badge_CE_compatible.png)](https://steamcommunity.com/sharedfiles/filedetails/?id=2890901044)
 ![CE + Simple Sidearms Compatibility Suite](Media/Badge_Suite.png)
