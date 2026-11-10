@@ -14,6 +14,10 @@ discipline). This file records what is Tactics-specific.
 ./test/verify-regression.sh tact1 <git-ref>         # A/B a scenario against another ref
 ```
 
+Environment overrides for every `test/run-*.sh`: `RIMWORLD=/path/to/game-binary` runs against another
+game build, for example a 1.7 depot copy, and `SAVEDATA=/path/to/profile` uses another isolated profile
+directory. Defaults are the Steam install and the repo's `test/SaveData`.
+
 Saves and results live in the SHARED profile - the compat repo's
 `test/SaveData/` - so the whole suite family runs one RimWorld install with one
 mod list. Scenario→save map: tact1→TACT-1-reload-abort, tact2→TACT-2-forced-dry,
