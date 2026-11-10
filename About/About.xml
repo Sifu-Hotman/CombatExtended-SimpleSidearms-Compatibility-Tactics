@@ -8,7 +8,7 @@
     </supportedVersions>
     <description>[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2890901044][img]https://raw.githubusercontent.com/CombatExtended-Continued/CombatExtended/master/Media/Badge_CE_compatible.png[/img][/url] [img]https://raw.githubusercontent.com/Sifu-Hotman/CombatExtended-SimpleSidearms-Compatibility-Patch/main/Media/Badge_Suite.png[/img] [img]https://raw.githubusercontent.com/Sifu-Hotman/CombatExtended-SimpleSidearms-Compatibility-Patch/main/Media/Badge_Tactics.png[/img]
 
-RimWorld mod that improves pawn decision-making for the interactions and circumstances that surface when [url=https://github.com/CombatExtended-Continued/CombatExtended]Combat Extended[/url] and [url=https://github.com/PeteTimesSix/SimpleSidearms]Simple Sidearms[/url] are patched together by this suite's [url=https://github.com/Sifu-Hotman/CombatExtended-SimpleSidearms-Compatibility-Patch]CE + Simple Sidearms Compatibility patch[/url].
+RimWorld mod that improves pawn decision-making for the interactions and circumstances that surface when [url=https://github.com/CombatExtended-Continued/CombatExtended]Combat Extended[/url] and [url=https://github.com/PeteTimesSix/SimpleSidearms]Simple Sidearms[/url] are patched together by this suite's [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3835112661]CE + Simple Sidearms Compatibility patch[/url].
 
 [h1]Features[/h1]
 Installing the mod turns them on; every feature has its own settings toggle.
@@ -28,7 +28,7 @@ Harmony → Combat Extended → Simple Sidearms → CE+SS Compatibility → this
 [b]The CE + Simple Sidearms suite[/b] - the core compatibility patch this module requires, and the other module in the suite.
 [table]
 [tr][th]Module[/th][th]What it does[/th][/tr]
-[tr][td][url=https://github.com/Sifu-Hotman/CombatExtended-SimpleSidearms-Compatibility-Patch][img]https://raw.githubusercontent.com/Sifu-Hotman/CombatExtended-SimpleSidearms-Compatibility-Patch/main/Media/Badge_Patch.png[/img][/url][/td][td]Core compatibility patch for Combat Extended and Simple Sidearms.[/td][/tr]
+[tr][td][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3835112661][img]https://raw.githubusercontent.com/Sifu-Hotman/CombatExtended-SimpleSidearms-Compatibility-Patch/main/Media/Badge_Patch.png[/img][/url][/td][td]Core compatibility patch for Combat Extended and Simple Sidearms.[/td][/tr]
 [tr][td][url=https://github.com/Sifu-Hotman/CombatExtended-SimpleSidearms-Compatibility-Loadouts][img]https://raw.githubusercontent.com/Sifu-Hotman/CombatExtended-SimpleSidearms-Compatibility-Patch/main/Media/Badge_Loadouts.png[/img][/url][/td][td]Syncs loadouts between Combat Extended and Simple Sidearms.[/td][/tr]
 [/table]
 
@@ -88,6 +88,7 @@ Credit to PeteTimesSix for Simple Sidearms and the CE team for Combat Extended. 
             <packageId>SifuHotman.CESimpleSidearmsCompat</packageId>
             <displayName>CombatExtended-SimpleSidearms Compatibility Patch</displayName>
             <downloadUrl>https://github.com/Sifu-Hotman/CombatExtended-SimpleSidearms-Compatibility-Patch</downloadUrl>
+            <steamWorkshopUrl>steam://url/CommunityFilePage/3835112661</steamWorkshopUrl>
         </li>
     </modDependencies>
     <loadAfter>
